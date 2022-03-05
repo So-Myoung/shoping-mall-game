@@ -13,6 +13,26 @@ function displayItems(items) {
     //data.json의 items를 createHTMLString에서 지정한 형태의 리스트로 매핑 후, join으로 하나의 문자열로 바꿔줌.
 }
 
+//map한 상태
+//let a = [
+//    ' <li class="item">
+//<img src="${item.image}" alt="${item.type}" class="itemthumbnail" />
+//<span class="itemdescription">${item.gender}, ${item.size}</span>
+//</li>',
+
+// ' <li class="item">
+//<img src="${item.image}" alt="${item.type}" class="itemthumbnail" />
+//<span class="itemdescription">${item.gender}, ${item.size}</span>
+//</li>',
+
+// ' <li class="item">
+//<img src="${item.image}" alt="${item.type}" class="itemthumbnail" />
+//<span class="itemdescription">${item.gender}, ${item.size}</span>
+//</li>'
+//]
+
+//join한 상태 -> 위에 map한 것이 하나의 문자열로 바뀜
+
 //주어진 데이터 아이템을 HTML 리스트 아이템으로 만듬
 function createHTMLString(item){
     return `
