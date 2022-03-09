@@ -43,6 +43,38 @@ function createHTMLString(item){
     `;
 }
 
+function onButtonClick(event, items) {
+    const dataset = event.target.dataset;
+    const key = dataset.key;
+    const value = dataset.value;
+    
+    if(key == null || value == null){
+        return; //아무것도 실행되자 않고 다음 코드로 넘어감.
+    }
+    const filtered = items.filter(item => item[key] === value);  
+    //dictionary 개념 사용. key 값을 이용해 value 값을 찾은뒤, 해당 value와 같은 value들만 찾음
+    displayItems(filtered);
+    //updateItems(items, key, value);
+}
+
+//function updateItems(items, key, value) {
+    // items.forEach(item => {
+        // if (item.dataset[key] === value) {
+            // item.classList.remove('invisible');
+        // } else {
+            // item.classList.add('invisible');
+        // }
+        // });
+// }
+
+
+function setEventListeners(items){
+    const logo = document.querySelector('.logo');
+    const buttons = document.querySelector('.buttons');
+    logo.addEventListener('click', () => displayItems(items));
+    buttons.addEventListener('click', event => onButtonClick(event, items));
+}
+
 // main
 loadItems() //items를 동적으로 받아와서 promise가 return이 되면
     .then(itmes => { // 전달받은 아이템들을
